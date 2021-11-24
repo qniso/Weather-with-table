@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--GOOGLE ICONS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--MATERIALIZE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <p>TableLogo</p>
+        <a href="index.html">Weather</a>
+    </header>
+    <main>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <div class="input-data">
+                    <p>Input name:</p>
+                    <input id="name-value" value="">
+                </div>
+                <div class="input-data">
+                    <p>Input phone:</p>
+                    <input id="phone-value">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="waves-effect waves-green btn-flat add-user" id="add-user">Create</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">exit</a>
+
+            </div>
+        </div>
+        <div id="modal2" class="modal">
+            <div class="modal-content edit-user">
+                <p>Edit userdata</p>
+                <div class="change-user-data">
+                    <div class="change-user-name">
+                        <p>Name: </p>
+                        <input type="text">
+                    </div>
+                    <div class="change-user-phone">
+                        <p>Phone: </p>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="container">
+                <div class="add-card">
+                    <p>All users: </p>
+                    <button class="modal-trigger" data-target="modal1" id="createCard">New Card</button>
+                </div>
+                <div class="filter-card">
+                    <div class="sort-card">
+                        <p>Sort by: </p>
+                        <div class="input-field">
+                            <select>
+                                <option value="id">id</option>
+                           </select>
+                        </div>
+                    </div>
+                    <div class="search-card">
+                        <p>Search:</p>
+                        <input id="searchValue">
+                        <button id="searchCard">Search</button>
+                    </div>
+                </div>
+                <div class="section-table">
+                    <table class="table">
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>phone</th>
+                            <th>edit</th>
+                        </tr>
+                        <!-- <tr>
+                            <td><span id="id"></span></td>
+                            <td><span id="name"></span></td>
+                            <td><span id="phone"></span></td>
+                            <td><span></span></td>
+
+                        </tr> -->
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!-- <input type="text" class="testinput">
+    <button class="testbtn">test</button> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js "></script>
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--GOOGLE ICONS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--MATERIALIZE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <p>WeatherLogo</p>
+        <a href="table.html">Table</a>
+    </header>
+    <div class="error-page">
+        <div class="error-message">
+            <h1>404</h1>
+            <p>not found</p>
+        </div>
+    </div>
+    <div class="weater-foracast">
+        <div class="user-info">
+            <div class="panel">
+                <h4>Weather works!</h4>
+                <p>Welcome</p>
+                <div class="weather-hourly-data">
+                    <div class="hourly-description">
+                        <p>Today</p>
+                        <p>Forecast</p>
+                        <p>Temp</p>
+                        <p>Feels like</p>
+                    </div>
+                    <div class="card-forecast">
+                        <p id="time"></p>
+                        <img src="" alt="" id="forecastImgHourly">
+                        <p id="aboutForecastHourly"></p>
+                        <p id="tempHourly"></p>
+                        <p id="feelsLikeHourly"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="forecast">
+                    <div class="weather-data">
+                        <p>Forecast</p>
+                        <p>City <span id="userCity"></span></p>
+                        <p>Temp: <span id="temp"></span> °C</p>
+                        <p>Feels like: <span id="feelsLike"></span> °C</p>
+                    </div>
+                    <div class="weater-img">
+                        <img src="" alt="" id="forecastImg">
+                        <p id="aboutForecast"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js "></script>
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>
