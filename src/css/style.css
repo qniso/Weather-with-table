@@ -148,6 +148,26 @@ table td:last-of-type {
   text-align: center;
 }
 
+.select-id {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.select-id p {
+  margin-right: 10px;
+}
+
+.select-id #selectUserid {
+  margin-top: 10px;
+  height: 2rem;
+  padding-bottom: 0;
+  width: 40%;
+}
+
 .change-user-data {
   margin-top: 10px;
   display: -webkit-box;
@@ -168,6 +188,8 @@ table td:last-of-type {
 .change-user-data .change-user-name input,
 .change-user-data .change-user-phone input {
   width: 70%;
+  height: 2rem;
+  margin-top: 10px;
   margin-left: 10px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -113,6 +113,20 @@ table {
     text-align: center;
 }
 
+.select-id {
+    display: flex;
+    justify-content: center;
+    p {
+        margin-right: 10px;
+    }
+    #selectUserid {
+        margin-top: 10px;
+        height: 2rem;
+        padding-bottom: 0;
+        width: 40%;
+    }
+}
+
 .change-user-data {
     margin-top: 10px;
     display: flex;
@@ -122,6 +136,8 @@ table {
         display: flex;
         input {
             width: 70%;
+            height: 2rem;
+            margin-top: 10px;
             margin-left: 10px;
         }
     }

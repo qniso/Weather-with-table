@@ -69,56 +69,68 @@ function showTodaysWeather() {
 }
 
 function showtable() {
-    let i = 1;
+    let i = 0;
     let listUsers = [];
 
-
+    let newArray = listUsers;
     document.querySelector('.add-user').onclick = () => {
         //ДОБАВЛЕНИЕ ПОЛЬЗОВАТЕЛЯ В ТАБЛИЦУ
         let userValue = document.querySelector("#name-value").value;
         let phoneValue = document.querySelector("#phone-value").value;
 
-
         let userTable = document.querySelector('.table'); //получаем таблицу 
         let rowGenerate = document.createElement('tr'); //Создаём елемент строки 
-        let newArray = listUsers;
+
 
         newArray.push([i++, userValue, phoneValue]);
 
         for (let i = 0; i < newArray.length; i++) {
             for (let j = 0; j < newArray.length; j++) {
-                // console.log(newArray[i][j]);
-                console.log(newArray[i]);
-
                 rowGenerate.innerHTML = `
-                ${newArray[i][0]}</td>
-                <td>${newArray[i][1]}</td>
-                <td>${newArray[i][2]}</td>
+                <td>${newArray[i][0]}</td>
+                <td class='itemArrayName'>${newArray[i][1]}</td>
+                <td class='itemArrayPhone'>${newArray[i][2]}</td>
                 <td><a href="#modal2" class="modal-trigger " id="changeUser"><img src="src/img/edit.png" style="width: 50px"/></a></td>`;
                 userTable.appendChild(rowGenerate);
-
+                break;
             }
         }
+        console.log(newArray);
 
-        document.querySelector('#changeBtn').onclick = () => {
-            //ИЗМИНЕНИЕ ДАННЫХ О ПОЛЬЗОВАТЕЛЕ В ТАБЛИЦЕ
-            let changeUserName = document.querySelector('#changeUserName').value;
-            let changeUserPhone = document.querySelector('#changeUserPhone').value;
-
-            for (let i = 0; i < newArray.length; i++) {
-                for (let j = 0; j < newArray.length; j++) {
-                    rowGenerate.innerHTML = `
-                    <td>${newArray[i][0]}</td>
-                    <td>${newArray[i][1] = changeUserName}</td>
-                    <td>${newArray[i][2] = changeUserPhone}</td>
-                    <td><a href="#modal2" class="modal-trigger " id="changeUser"><img src="src/img/edit.png" style="width: 50px"/></a></td>`;
-
-                    // console.log(newArray);
-
-                }
-            }
-        }
 
     }
+    document.querySelector('#changeBtn').onclick = () => {
+        //ИЗМИНЕНИЕ ДАННЫХ О ПОЛЬЗОВАТЕЛЕ В ТАБЛИЦЕ
+        let changeUserName = document.querySelector('#changeUserName').value;
+        let changeUserPhone = document.querySelector('#changeUserPhone').value;
+        let selectUserid = document.querySelector('#selectUserid').value;
 
+        let itemArrayName = document.querySelector('.itemArrayName');
+        let itemArrayPhone = document.querySelector('.itemArrayPhone');
+
+
+        newArray.forEach((item, index, array) => {
+                console.log(`Array id ${index}`);
+                if (index == selectUserid) {
+                    itemArrayName.innerHTML = `
+                    <td class='itemArrayName'>${item[1] = changeUserName}</td>`;
+                    itemArrayPhone.innerHTML = `
+                    <td class='itemArrayPhone'>${item[2] = changeUserPhone}</td>`;
+
+                    console.log(item[1]);
+                }
+            })
+            // for (let i = 0; i < newArray.length; i++) {
+            //     for (let j = 0; j < newArray.length; j++) {
+            //         rowGenerate.innerHTML = `
+            //         <td>${newArray[i][0]}</td>
+            //         <td>${newArray[i][1] = changeUserName}</td>
+            //         <td>${newArray[i][2] = changeUserPhone}</td>
+            //         <td><a href="#modal2" class="modal-trigger " id="changeUser"><img src="src/img/edit.png" style="width: 50px"/></a></td>`;
+
+        //         // console.log(newArray);
+
+        //     }
+        // }
+    }
 }
