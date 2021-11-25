@@ -74,6 +74,7 @@ function showtable() {
 
 
     document.querySelector('.add-user').onclick = () => {
+        //ДОБАВЛЕНИЕ ПОЛЬЗОВАТЕЛЯ В ТАБЛИЦУ
         let userValue = document.querySelector("#name-value").value;
         let phoneValue = document.querySelector("#phone-value").value;
 
@@ -100,6 +101,7 @@ function showtable() {
         }
 
         document.querySelector('#changeBtn').onclick = () => {
+            //ИЗМИНЕНИЕ ДАННЫХ О ПОЛЬЗОВАТЕЛЕ В ТАБЛИЦЕ
             let changeUserName = document.querySelector('#changeUserName').value;
             let changeUserPhone = document.querySelector('#changeUserPhone').value;
 
