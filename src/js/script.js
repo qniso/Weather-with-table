@@ -72,9 +72,11 @@ function showtable() {
     let i = 1;
     let listUsers = [];
 
+
     document.querySelector('.add-user').onclick = () => {
         let userValue = document.querySelector("#name-value").value;
         let phoneValue = document.querySelector("#phone-value").value;
+
 
         let userTable = document.querySelector('.table'); //получаем таблицу 
         let rowGenerate = document.createElement('tr'); //Создаём елемент строки 
@@ -85,13 +87,36 @@ function showtable() {
         for (let i = 0; i < newArray.length; i++) {
             for (let j = 0; j < newArray.length; j++) {
                 // console.log(newArray[i][j]);
+                console.log(newArray[i]);
+
                 rowGenerate.innerHTML = `
-                <td>${newArray[i][0]}</td>
+                ${newArray[i][0]}</td>
                 <td>${newArray[i][1]}</td>
                 <td>${newArray[i][2]}</td>
-                <td><a href="#modal2" class="modal-trigger"><img src="src/img/edit.png" style="width: 50px"/></a></td>`;
+                <td><a href="#modal2" class="modal-trigger " id="changeUser"><img src="src/img/edit.png" style="width: 50px"/></a></td>`;
                 userTable.appendChild(rowGenerate);
+
             }
         }
+
+        document.querySelector('#changeBtn').onclick = () => {
+            let changeUserName = document.querySelector('#changeUserName').value;
+            let changeUserPhone = document.querySelector('#changeUserPhone').value;
+
+            for (let i = 0; i < newArray.length; i++) {
+                for (let j = 0; j < newArray.length; j++) {
+                    rowGenerate.innerHTML = `
+                    <td>${newArray[i][0]}</td>
+                    <td>${newArray[i][1] = changeUserName}</td>
+                    <td>${newArray[i][2] = changeUserPhone}</td>
+                    <td><a href="#modal2" class="modal-trigger " id="changeUser"><img src="src/img/edit.png" style="width: 50px"/></a></td>`;
+
+                    // console.log(newArray);
+
+                }
+            }
+        }
+
     }
+
 }
