@@ -1,6 +1,6 @@
 window.onload = () => {
-    showTodaysWeather()
-    showtable()
+    showTodaysWeather();
+    showtable();
 
 }
 $(document).ready(function() {
@@ -32,26 +32,35 @@ function showTodaysWeather() {
             time = document.querySelector('#time');
             const now = new Date();
             let hour = now.getHours();
+            let minutes = now.getMinutes();
 
             userCity.innerHTML = data.name;
             temp.innerHTML = (data.main.temp - 273).toFixed(0); //КОНВЕРТАЦИЯ В ЦЕЛЬСИИ 
             feelsLike.innerHTML = (data.main.feels_like - 273).toFixed(0); //КОНВЕРТАЦИЯ В ЦЕЛЬСИИ
-            time.innerHTML = hour;
+            time.innerHTML = `${hour}:${minutes}`;
 
+            // console.log(data.weather);
+            let dataWeather = data.weather;
 
-            if (data.weather.main = 'clear') {
-                forecastImg.src = 'src/img/clear-sky.png';
-                aboutForecast.innerHTML = 'Солнечно';
-            } else if (data.weather.main = 'rain') {
-                forecastImg.src = 'src/img/rain.png';
-                aboutForecast.innerHTML = 'Дождь';
-            } else if (data.weather.main = 'snow') {
-                forecastImg.src = 'src/img/snowy.png';
-                aboutForecast.innerHTML = 'Снег';
-            } else if (data.weather.main = 'clouds') {
-                forecastImg.src = 'src/img/cloud.png';
-                aboutForecast.innerHTML = 'Облачно';
-            }
+            dataWeather.forEach(item => {
+                if (item.main == "clear") {
+                    forecastImg.src = 'src/img/clear-sky.png';
+                    aboutForecast.innerHTML = 'Солнечно';
+                } else if (item.main == "Mist") {
+                    forecastImg.src = 'src/img/mist.png';
+                    aboutForecast.innerHTML = 'Туман';
+                } else if (item.main == "Snow") {
+                    forecastImg.src = 'src/img/snowy.png';
+                    aboutForecast.innerHTML = 'Снег';
+                } else if (item.main == "Rain") {
+                    forecastImg.src = 'src/img/rain.png';
+                    aboutForecast.innerHTML = 'Дождь';
+                } else if (item.main == "Clouds") {
+                    forecastImg.src = 'src/img/cloud.png';
+                    aboutForecast.innerHTML = 'Облачно';
+                }
+            })
+
 
             console.log(hour);
             console.log(data); //ПОЛУЧАЕМ ДАННЫЕ 
@@ -74,6 +83,7 @@ function showtable() {
 
     let newArray = listUsers;
     document.querySelector('.add-user').onclick = () => {
+
         //ДОБАВЛЕНИЕ ПОЛЬЗОВАТЕЛЯ В ТАБЛИЦУ
         let userValue = document.querySelector("#name-value").value;
         let phoneValue = document.querySelector("#phone-value").value;
@@ -81,11 +91,13 @@ function showtable() {
         let userTable = document.querySelector('.table'); //получаем таблицу 
         let rowGenerate = document.createElement('tr'); //Создаём елемент строки 
 
+        rowGenerate.id.add
 
         newArray.push([i++, userValue, phoneValue]);
 
         for (let i = 0; i < newArray.length; i++) {
             for (let j = 0; j < newArray.length; j++) {
+                console.log();
                 rowGenerate.innerHTML = `
                 <td>${newArray[i][0]}</td>
                 <td class='itemArrayName'>${newArray[i][1]}</td>
@@ -94,6 +106,7 @@ function showtable() {
                 userTable.appendChild(rowGenerate);
                 break;
             }
+
         }
         console.log(newArray);
 
@@ -108,17 +121,24 @@ function showtable() {
         let itemArrayName = document.querySelector('.itemArrayName');
         let itemArrayPhone = document.querySelector('.itemArrayPhone');
 
-
         newArray.forEach((item, index, array) => {
                 console.log(`Array id ${index}`);
                 if (index == selectUserid) {
+                    //ВНОСИМ ИЗМИНЕНИЯ В МАССИВ
+                    item[1] = changeUserName;
+                    item[2] = changeUserPhone;
+
+                    //ИЗМЕНЯЕМ ТАБЛИЦУ
                     itemArrayName.innerHTML = `
                     <td class='itemArrayName'>${item[1] = changeUserName}</td>`;
                     itemArrayPhone.innerHTML = `
                     <td class='itemArrayPhone'>${item[2] = changeUserPhone}</td>`;
-
-                    console.log(item[1]);
                 }
+                let idRow = document.querySelector("[class='" + item[0] + "']");
+
+                console.log(idRow);
+
+                console.log(array);
             })
             // for (let i = 0; i < newArray.length; i++) {
             //     for (let j = 0; j < newArray.length; j++) {
@@ -132,5 +152,11 @@ function showtable() {
 
         //     }
         // }
+    }
+    let selectedOption = document.querySelector('#selectItem').value;
+
+
+    document.querySelector('#searchCard').onclick = () => {
+
     }
 }
